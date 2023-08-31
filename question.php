@@ -36,7 +36,7 @@ $choices = mysqli_query($mysqli, $query);
 					<li><input name="choice" type="radio" value="<?php echo $row['id'];?>" /><?php echo $row['text'];?></li>
 					<?php endwhile ?>
 				</ul>
-				<input type="submit" value="Submit" />
+				<input type="submit" name="submit" value="Submit" />
 			</form>
 		</div>
 	</main>
