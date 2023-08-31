@@ -12,13 +12,21 @@
 			<h1>PHP Quizzer</h1>
 		</div>
 	</header>
-	<main>
-		<div class="container">
+	<main>         
+       <?php if ($_SESSION['score'] > 2): ?>
+       <div class="container">
 			<h2>You're Done!</h2>
 				<p>Congrats! You have completed the test</p>
 				<p>Final Score: <?php echo $_SESSION['score'];?></p>
+				<a href="question.php?n=1" class="start">Take Again</a></div>
+       <?php else: ?>
+       <div class="container">
+			<h2>You finish the quiz!</h2>
+				<p>Sorry! You have work more to take the exam</p>
+				<p>Final Score: <?php echo $_SESSION['score'];?></p>
 				<a href="question.php?n=1" class="start">Take Again</a>
 		</div>
+       <?php endif; ?>
 	</main>
 	<footer>
 		<div class="container">
