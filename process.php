@@ -22,8 +22,8 @@ if (isset($_POST['submit'])) {
     $query = "select * from `questions`";
     $result = mysqli_query($mysqli, $query);
     $total = mysqli_num_rows($result);
-// Collect correct answers
-if($selected_choice == $correct_choice) {
+//Collect correct answers
+if($selected_choice === $correct_choice) {
     $_SESSION['score']++;
 }
 if ($number == $total) {
@@ -31,7 +31,7 @@ if ($number == $total) {
     exit();
 }
 else {
-    header("Location:question.php?n=". $number+1); 
+    header("Location:question.php?n=" . $number+1); 
 }
-} 
+}
 ?>

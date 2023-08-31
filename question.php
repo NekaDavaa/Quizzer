@@ -9,7 +9,6 @@ $question = mysqli_fetch_assoc($result);
 //Query for the choices
 $query = "SELECT * FROM `choices` WHERE `question_number` = $number";
 $choices = mysqli_query($mysqli, $query);
-
 $query = "select * from `questions`";
 $result = mysqli_query($mysqli, $query);
 $total_q_rows = mysqli_num_rows($result);
