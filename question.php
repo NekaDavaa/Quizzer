@@ -1,26 +1,14 @@
 <?php include 'database.php'?>
-
-
-<!-- $number = (int) $_GET['n'];
-$stmt = $mysqli->prepare("SELECT * FROM `questions` WHERE `question_number` = ?");
-$stmt->bind_param("i", $number);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = null;
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();  // Fetch the row
-}
-$stmt->close();
-$mysqli->close(); -->
-
 <?php
+//Query for the questions table
 $number = (int) $_GET['n'];
 $query = "SELECT * FROM `questions` WHERE `question_number` = $number";
 $result = mysqli_query($mysqli, $query);
-$row = mysqli_fetch_assoc($result);
+$question = mysqli_fetch_assoc($result);
+//Query for the choices
+$query = "SELECT * FROM `choices` WHERE `question_number` = $number";
+$choices = mysqli_query($mysqli, $query);
 ?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -39,14 +27,14 @@ $row = mysqli_fetch_assoc($result);
 		<div class="container">
 			<div class="current">Question 1 of 5</div>
 			<p class="question">
-			<?php echo $row['text']; ?>
+			<?php echo $question['text']; ?>
 			</p>
 			<form method="post" action="process.php">
 				<ul class="choices">
-					<li><input name="choice" type="radio" value="1" />PHP: Hypertext Preprocessor</li>
-					<li><input name="choice" type="radio" value="1" />Private Home Page</li>
-					<li><input name="choice" type="radio" value="1" />Personal Home Page</li>
-					<li><input name="choice" type="radio" value="1" />Personal Hypertext Preprocessor</li>
+					
+                    <?php while ($row = mysqli_fetch_assoc($choices)) : ?>
+					<li><input name="choice" type="radio" value="<?php echo $row['id'];?>" /><?php echo $row['text'];?></li>
+					<?php endwhile ?>
 				</ul>
 				<input type="submit" value="Submit" />
 			</form>
