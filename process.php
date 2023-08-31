@@ -6,7 +6,6 @@
         $_SESSION['score'] = 0;
     }
 ?>
-
 <?php 
 if (isset($_POST['submit'])) {
     $number = $_POST['number'];
@@ -23,7 +22,7 @@ if (isset($_POST['submit'])) {
     $query = "select * from `questions`";
     $result = mysqli_query($mysqli, $query);
     $total = mysqli_num_rows($result);
-      //Todo this if to add score into session  
+// Collect correct answers
 if($selected_choice == $correct_choice) {
     $_SESSION['score']++;
 }
