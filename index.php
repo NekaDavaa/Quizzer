@@ -1,10 +1,9 @@
 <?php include 'database.php' ?>
 <?php
-//Make query
+//Number of rows
 $query = "SELECT * FROM `questions`";
 $result = mysqli_query($mysqli, $query);
 $num_rows = mysqli_num_rows($result);
-$question = mysqli_fetch_assoc($result);
 ?>
 <!DOCTYPE html>
 <html>
