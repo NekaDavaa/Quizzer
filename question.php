@@ -49,7 +49,7 @@ $total_q_rows = mysqli_num_rows($result);
 	</main>
 	<footer>
 		<div class="container">
-			Copyright &copy; 2014, PHP Quizzer
+			Copyright &copy; 2014, PHP Quizzer <br />
 			<a href="https://github.com/NekaDavaa/Quizzer" target="_blank">Click on the link to overview the project code...</a>
 		</div>
 	</footer>
