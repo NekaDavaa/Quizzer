@@ -1,6 +1,27 @@
 <?php include 'database.php'?>
 
 
+<!-- $number = (int) $_GET['n'];
+$stmt = $mysqli->prepare("SELECT * FROM `questions` WHERE `question_number` = ?");
+$stmt->bind_param("i", $number);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = null;
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();  // Fetch the row
+}
+$stmt->close();
+$mysqli->close(); -->
+
+<?php
+$number = (int) $_GET['n'];
+$query = "SELECT * FROM `questions` WHERE `question_number` = $number";
+$result = mysqli_query($mysqli, $query);
+$row = mysqli_fetch_assoc($result);
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +39,7 @@
 		<div class="container">
 			<div class="current">Question 1 of 5</div>
 			<p class="question">
-				What does PHP stand for?
+			<?php echo $row['text']; ?>
 			</p>
 			<form method="post" action="process.php">
 				<ul class="choices">
@@ -38,3 +59,4 @@
 	</footer>
 </body>
 </html>
+
