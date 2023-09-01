@@ -24,7 +24,7 @@ if($insert_row) {
                  $is_correct = 1;
       }
        else {
-       	 $is_correct = 0;
+       	         $is_correct = 0;
        } 
  $query = "insert into `choices` (`question_number`, `is_correct`, `text`) values ('$question_number', '$is_correct', '$value')";
  $choice_insert = $mysqli->query($query) or die;   
