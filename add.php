@@ -1,11 +1,8 @@
 <?php include 'database.php' ?>
-
 <?php
-
 $query = "select * from questions";
 $result = $mysqli->query($query);
 $next_question = mysqli_num_rows($result);
-
 if (isset($_POST['submit'])) {
 $question_number = $_POST['question_number'];
 $question_text = $_POST['question_text'];
@@ -16,12 +13,10 @@ $choices[3] = $_POST['choice3'];
 $choices[4] = $_POST['choice4'];
 $choices[5] = $_POST['choice5'];
 $correct_choice = $_POST['correct_choice'];
-
 //The Query
 $query = "insert into questions (`question_number`, `text`) values ('$question_number', '$question_text')";
 //Run Query
 $insert_row = $mysqli->query($query) or die;
-
 if($insert_row) {
   $is_correct = 0;
   foreach ($choices as $choice => $value) {
@@ -33,13 +28,10 @@ if($insert_row) {
        } 
  $query = "insert into `choices` (`question_number`, `is_correct`, `text`) values ('$question_number', '$is_correct', '$value')";
  $choice_insert = $mysqli->query($query) or die;   
-
- 
 }
 }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
