@@ -42,7 +42,11 @@ $total_q_rows = mysqli_num_rows($result);
 				</ul>
 				<input type="submit" name="submit" value="Submit" />
 				<input type="hidden" name="number" value="<?php echo $number; ?>" />
-			</form>
+			<?php
+                 if (isset($_GET['error'])) {
+                 echo "<p class='error'>" . htmlentities($_GET['error']) . "</p>";
+                 }?>
+   </form>
 		</div>
 	</main>
 	<footer>

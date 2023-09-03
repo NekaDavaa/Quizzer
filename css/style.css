@@ -66,6 +66,10 @@ a.start{
 	margin:20px 0 10px 0;
 }
 
+p.error {
+	color:red;
+	font-size: 1rem;
+}
 @media only screen and (max-width:960px){
 	.container{
 		width:80%;

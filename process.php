@@ -36,7 +36,9 @@ else {
 }
 }
 else {
-     echo "Please make a choice.";
+    $number = $_POST['number'];
+    header("Location:question.php?n=" . $number . "&error=Please+make+a+choice");
 }
+
 }
 ?>
