@@ -8,6 +8,7 @@
 ?>
 <?php 
 if (isset($_POST['submit'])) {
+    if (isset($_POST['choice'])) {
     $number = $_POST['number'];
     $selected_choice = $_POST['choice'];
 
@@ -32,6 +33,10 @@ if ($number == $total) {
 }
 else {
     header("Location:question.php?n=" . $number+1); 
+}
+}
+else {
+     echo "Please make a choice.";
 }
 }
 ?>

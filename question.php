@@ -12,8 +12,6 @@ $choices = mysqli_query($mysqli, $query);
 $query = "select * from `questions`";
 $result = mysqli_query($mysqli, $query);
 $total_q_rows = mysqli_num_rows($result);
-
-
 ?>
 
 <!DOCTYPE html>
