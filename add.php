@@ -1,7 +1,7 @@
 <?php include 'database.php' ?>
 <?php
 
-asd
+
 $query = "select * from questions";
 $result = $mysqli->query($query);
 $next_question = mysqli_num_rows($result);
